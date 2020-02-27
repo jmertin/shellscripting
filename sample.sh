@@ -49,6 +49,9 @@ else
     exit 0   
 fi
 
+# In case a user hits Ctrl-C, make sure we at least clean-up the lock-file.
+trap cleanup 1 2 3 6
+
 #######################################################################
 # Actual script - do not modify anything below this point
 #######################################################################
@@ -126,7 +129,8 @@ else
 	RET=1
 	VERBOSE=true
 	while [[ RET -ne 0 ]]; do
-	    MSG="=> Waiting for confirmation of MySQL service startup"
+	    LDATE=`date +"%F @ %T"`
+	    MSG="=> Waiting for confirmation of MySQL service startup ($LDATE)"
             log $MSG
             sleep 2
             # Looking for the Uptime string of the Status message. As long as it won't show up, the DB
