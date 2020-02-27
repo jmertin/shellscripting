@@ -1,2 +1,5 @@
 git_wrap..LOCK
 shellscripting.log
+00_infosource.cfg
+01_description.inc
+02_changelog.inc
