@@ -124,7 +124,7 @@ then
 	    if [ $COUNT -eq 1 ]
 	    then
 		VERBOSE=true
-		log "Unable to gain lock. Exiting!"
+		log "Unable to gain lock \"$tolock\". Exiting!"
 		exit 1
 	    fi
 	done
@@ -255,4 +255,15 @@ title () {
     echo "== $* $line"
     echo "==============================================================================="
     echo
+}
+
+##############################################################################
+# cleanup - Cleans up lockfile and exits cleanly
+cleanup () {
+    # Set a human readable message/cause
+    MSG="Script interrupted by user request. Exiting!"  
+    # release the lock file
+    Unlock
+    errlvl=1
+    errors
 }
