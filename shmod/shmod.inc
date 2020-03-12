@@ -112,27 +112,44 @@ then
     # If we have provided a second Var, set Exit status using  it.
     if [ ! -n "$Action" ]
     then
-        # Oops, we  found a lockfile. Loop while checking if still exists.
 	COUNT=0
         while [ -s $tolock ]
         do
-	    MSG="Lockfile exists. Waiting 5secs until next check"
-	    errlvl=15
-            errors
-            sleep 5;
-	    let COUNT=($COUNT + 1)
-	    if [ $COUNT -eq 1 ]
+            # Oops, we  found a lockfile. Loop while checking if still exists.
+	    EXISTINGPID=`cat $tolock` # Extract PID out of Lock file
+	    CHECKPID=`pidof -x $0`    # extract PID's of scripts with same name
+	    CHECKRES=`echo $CHECKPID | grep $EXISTINGPID` # Check if locked PID is in running list
+	    VERBOSE=true
+	    # Issue error message
+	    MSG="Lockfile for PID $EXISTINGPID exists. Waiting 5secs until next check"
+
+	    # Checking if PID's exist
+	    if [ -n "$CHECKRES" ]
 	    then
-		VERBOSE=true
-		log "Unable to gain lock \"$tolock\". Exiting!"
-		exit 1
+		errlvl=15
+		errors
+		sleep 5;
+		let COUNT=($COUNT + 1)
+		if [ $COUNT -eq 3 ]
+		then
+		    VERBOSE=true
+		    log "Unable to gain lock \"$tolock\". Exiting!"
+		    exit 1
+		fi
+	    else
+		MSG="Found stale lockfile... Removing it..."
+		errlvl=15 # Send out Warning message
+		errors
+		rm -f $tolock
+		errlvl=$?
+		errors
+		break
 	    fi
 	done
+	
         MSG="Creating lockfile $tolock failed after 5 secs"
         # write PID into Lock-File.
-        echo $$ > $tolock
-        errlvl=$?
-        errors
+	CreateLock	
     else
         Pid="`cat $tolock`"
         Exists="`ps auxw | grep " $Pid " | grep -c $PROGNAME`"
@@ -156,12 +173,19 @@ then
     fi
 else
     # Lock it
+    CreateLock
+fi
+} # Lock
+
+# ACtually create the lock-file.
+CreateLock (){
+    # Lock it
     MSG="Creating lockfile $tolock failed"
     echo $$ > $tolock
     errlvl=$?
     errors
-fi
-} # Lock
+}
+
 
 ##############################################################################
 #
