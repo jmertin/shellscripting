@@ -16,7 +16,7 @@
 log() {
 
     # Be verbose
-    ! $VERBOSE || echo ">>> ${PROGNAME}[${PROG_PID}]: $*"
+    ! $VERBOSE || echo ">>> $*"
 
     # no logger found, no syslog capabilities
     if [ $SYSLOG ]
