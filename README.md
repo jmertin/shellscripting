@@ -1,4 +1,4 @@
-# shellscripting 1.0-5 by J. Mertin -- joerg.mertin@broadcom.com
+# shellscripting 1.0-6 by J. Mertin -- joerg.mertin@broadcom.com
 Purpose: DX Application Performance Management Blogs: Shell scripting examples
 
 # Description
@@ -17,7 +17,7 @@ The following blog entries have been writte:
 1. [Shell scripting: log handler](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/02/11/shell-scripting-log-handler)
 2. [Shell scripting: error handling](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/02/12/shell-scripting-error-handler)
 3. [Shell scripting: using lock-files](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/02/12/shell-scripting-using-lock-files)
-4. Shell scripting: CLI UI handling (Done, to be published)
+4. [Shell scripting: CLI UI handling](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/03/25/shell-scripting-cli-ui-handling)
 5. Shell scription: handling program execution dependencies/semaphore?
 
 Note: Even though these is example code, it will probably evolve over

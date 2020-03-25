@@ -1,3 +1,8 @@
+2020-03-25 e913a1a Joerg Mertin Lowered loop time to 5secs (from 30secs)
+2020-03-16 5ee2ac8 Joerg Mertin Removed the redirection to the logs in teh VERBOSE function as it caused double entry of the same information.
+2020-03-12 521853e Joerg Mertin Added PID detection routine to Lock function and export the actual oock to a secondary subfunction.
+2020-02-27 ff563f4 Joerg Mertin Provided build number
+2020-02-27 d3c5136 Joerg Mertin Housekeeping
 2020-02-27 0cf9c3c Joerg Mertin Added date and time to be displayed in the waitiong for confirmation routine
 2020-02-27 6c8663f Joerg Mertin Added cleanup function.
 2020-02-27 46ef3ed Joerg Mertin Updates in control files
