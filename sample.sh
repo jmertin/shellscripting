@@ -66,7 +66,7 @@ title $LDATE $MSG
 #log $MSG
 entry "Execution output below"
 
-#sleep 30
+#sleep 5
 
 if [ -f file.ba ]
 then
