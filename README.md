@@ -18,7 +18,7 @@ The following blog entries have been writte:
 2. [Shell scripting: error handling](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/02/12/shell-scripting-error-handler)
 3. [Shell scripting: using lock-files](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/02/12/shell-scripting-using-lock-files)
 4. [Shell scripting: CLI UI handling](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/03/25/shell-scripting-cli-ui-handling)
-5. Shell scription: handling program execution dependencies/semaphore?
+5. Shell scription: [handling program execution dependencies/semaphore](https://community.broadcom.com/enterprisesoftware/blogs/jmertin/2020/04/24/shell-scription-handling-program-execution-depende)
 
 Note: Even though these is example code, it will probably evolve over
 time. So in case things do not match exactly with the example blogs,
